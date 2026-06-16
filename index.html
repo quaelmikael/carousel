@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,20 +16,23 @@
 }
 
 body{
-    font-family: "Segoe UI", sans-serif;
-    background: transparent;
-    padding:20px;
+    font-family:'Segoe UI',sans-serif;
+    background:transparent;
+    padding:10px;
 }
+
+/* ===== DESKTOP ===== */
 
 .calendar-container{
     display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:16px;
+    grid-template-columns:repeat(6, minmax(0,1fr));
+    gap:10px;
     width:100%;
 }
 
 .card{
-    height:320px;
+    width:100%;
+    aspect-ratio:3/4;
     perspective:1200px;
     cursor:pointer;
 }
@@ -37,8 +41,8 @@ body{
     position:relative;
     width:100%;
     height:100%;
-    transition:transform 0.8s ease;
     transform-style:preserve-3d;
+    transition:transform .8s ease;
 }
 
 .card.flipped .card-inner{
@@ -50,14 +54,10 @@ body{
     position:absolute;
     width:100%;
     height:100%;
-    backface-visibility:hidden;
-    border-radius:16px;
+    border-radius:14px;
     overflow:hidden;
-    box-shadow:0 4px 18px rgba(0,0,0,.15);
-}
-
-.front{
-    background:#fff;
+    backface-visibility:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .front img{
@@ -75,14 +75,13 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding:20px;
     text-align:center;
+    padding:15px;
 }
 
 .back h3{
-    margin-bottom:12px;
     color:#003366;
-    font-size:20px;
+    margin-bottom:10px;
 }
 
 .back p{
@@ -90,18 +89,17 @@ body{
     line-height:1.5;
 }
 
-.back small{
-    margin-top:15px;
-    color:#999;
-}
+/* ===== TABLET ===== */
 
-@media (max-width:1400px){
+@media (max-width:1024px){
 
     .calendar-container{
         grid-template-columns:repeat(3,1fr);
     }
 
 }
+
+/* ===== PHONE ===== */
 
 @media (max-width:768px){
 
@@ -124,13 +122,9 @@ body{
             <div class="front">
                 <img src="https://drive.google.com/uc?export=view&id=1l8_vTGOd1dPbSnXmA_Yy-0KznBkC_MRY">
             </div>
-
             <div class="back">
                 <h3>Event Title</h3>
-                <p>
-                    Event description goes here.
-                </p>
-                <small>Click again to flip back</small>
+                <p></p>
             </div>
         </div>
     </div>
@@ -141,7 +135,6 @@ body{
             <div class="front">
                 <img src="https://drive.google.com/uc?export=view&id=1GttwJjXNV6K4hWIsuEZf0hOnUKk-pOJE">
             </div>
-
             <div class="back">
                 <h3>Event Title</h3>
                 <p></p>
@@ -155,7 +148,6 @@ body{
             <div class="front">
                 <img src="https://drive.google.com/uc?export=view&id=1u-Jh4DBSabUxofNDSOKTbZ2B_rv0oS0p">
             </div>
-
             <div class="back">
                 <h3>Event Title</h3>
                 <p></p>
@@ -169,7 +161,6 @@ body{
             <div class="front">
                 <img src="https://drive.google.com/uc?export=view&id=1R_SsluY1kDLTlnFeoZIm40PMcitueJ27">
             </div>
-
             <div class="back">
                 <h3>Event Title</h3>
                 <p></p>
@@ -183,7 +174,6 @@ body{
             <div class="front">
                 <img src="https://drive.google.com/uc?export=view&id=1kd85bi5voMoRYNSoGD_h90ZPuQ2F-jlm">
             </div>
-
             <div class="back">
                 <h3>Event Title</h3>
                 <p></p>
@@ -197,7 +187,6 @@ body{
             <div class="front">
                 <img src="https://drive.google.com/uc?export=view&id=1qsBtbvq6Ak7quYZfKlrVVM9bBSe2O5vf">
             </div>
-
             <div class="back">
                 <h3>Event Title</h3>
                 <p></p>
@@ -209,11 +198,11 @@ body{
 
 <script>
 
-document.querySelectorAll(".card").forEach(card => {
+document.querySelectorAll('.card').forEach(card => {
 
-    card.addEventListener("click", () => {
+    card.addEventListener('click', () => {
 
-        card.classList.toggle("flipped");
+        card.classList.toggle('flipped');
 
     });
 
@@ -223,3 +212,4 @@ document.querySelectorAll(".card").forEach(card => {
 
 </body>
 </html>
+```
