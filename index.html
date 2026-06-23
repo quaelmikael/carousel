@@ -20,7 +20,8 @@ body{
 
 .calendar-container{
     display:grid;
-    grid-template-columns:repeat(5,minmax(180px,1fr));
+    /* Default to 5 equal columns for desktop/landscape rows */
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap:16px;
     width:100%;
 }
@@ -147,23 +148,19 @@ body{
     font-size:11px;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE BREAKPOINTS */
 
-@media (max-width:1200px){
+/* Mobile Portrait: Cards display exactly 1 card per row */
+@media (max-width: 768px) and (orientation: portrait) {
     .calendar-container{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns: 1fr;
     }
 }
 
-@media (max-width:768px){
-    .calendar-container{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media (max-width:480px){
-    .calendar-container{
-        grid-template-columns:1fr;
+/* Force Landscape layouts to stay on one single row, even on smaller screens */
+@media (orientation: landscape) {
+    .calendar-container {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 }
 </style>
@@ -173,7 +170,6 @@ body{
 
 <div class="calendar-container">
 
-    <!-- SESSION 1 -->
     <div class="card">
         <div class="card-inner">
             <div class="front">
@@ -191,7 +187,6 @@ body{
         </div>
     </div>
 
-    <!-- SESSION 2 -->
     <div class="card">
         <div class="card-inner">
             <div class="front">
@@ -209,7 +204,6 @@ body{
         </div>
     </div>
 
-    <!-- SESSION 3 -->
     <div class="card">
         <div class="card-inner">
             <div class="front">
@@ -227,7 +221,6 @@ body{
         </div>
     </div>
 
-    <!-- SESSION 4 -->
     <div class="card">
         <div class="card-inner">
             <div class="front">
@@ -245,7 +238,6 @@ body{
         </div>
     </div>
 
-    <!-- SESSION 5 -->
     <div class="card">
         <div class="card-inner">
             <div class="front">
